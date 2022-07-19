@@ -1,0 +1,2236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="main.css">
+    <meta charset="UTF-8">
+    <title>TechPath API Documentation</title>
+                                                         </head>
+<body>
+<div class="container">
+    <h1>TechPath API Documentation</h1>
+    <p class="sw-info">
+        
+        Version: <span class="sw-info-version">1.0.0</span>
+    </p>
+    <p><p>This will show all the available APIs for Techpath along with all required information</p>
+    </p>
+    
+    
+    <div id="sw-schemes" class="sw-default-value">
+        <span class="sw-default-value-header">Schemes:</span>
+        
+    </div>
+    
+        <h2 id="swagger--summary-no-tags">Summary</h2>
+        <table class="table table-bordered table-condensed swagger--summary">
+            <thead>
+            <tr>
+                <th>Path</th>
+                <th>Operation</th>
+                <th>Description</th>
+            </tr>
+            </thead>
+            <tbody>
+                    <tr>
+                            <td class="swagger--summary-path" rowspan="1">
+                                <a href="#path--v1-auth-create-user">/v1/auth/create-user</a>
+                            </td>
+                        <td>
+                            <a href="#operation--v1-auth-create-user-post">POST</a>
+                        </td>
+                        <td>
+                            <p>Create a new SME user</p>
+        
+                        </td>
+                    </tr>
+                    <tr>
+                            <td class="swagger--summary-path" rowspan="1">
+                                <a href="#path--v1-auth-forgot-password">/v1/auth/forgot-password</a>
+                            </td>
+                        <td>
+                            <a href="#operation--v1-auth-forgot-password-post">POST</a>
+                        </td>
+                        <td>
+                            <p>Send forgot password request</p>
+        
+                        </td>
+                    </tr>
+                    <tr>
+                            <td class="swagger--summary-path" rowspan="1">
+                                <a href="#path--v1-auth-resend-verification">/v1/auth/resend-verification</a>
+                            </td>
+                        <td>
+                            <a href="#operation--v1-auth-resend-verification-post">POST</a>
+                        </td>
+                        <td>
+                            <p>Resend email verification code</p>
+        
+                        </td>
+                    </tr>
+                    <tr>
+                            <td class="swagger--summary-path" rowspan="1">
+                                <a href="#path--v1-auth-reset-password">/v1/auth/reset-password</a>
+                            </td>
+                        <td>
+                            <a href="#operation--v1-auth-reset-password-post">POST</a>
+                        </td>
+                        <td>
+                            <p>Reset SME user password</p>
+        
+                        </td>
+                    </tr>
+                    <tr>
+                            <td class="swagger--summary-path" rowspan="1">
+                                <a href="#path--v1-auth-sign-in">/v1/auth/sign-in</a>
+                            </td>
+                        <td>
+                            <a href="#operation--v1-auth-sign-in-post">POST</a>
+                        </td>
+                        <td>
+                            <p>Sign in a new SME user</p>
+        
+                        </td>
+                    </tr>
+                    <tr>
+                            <td class="swagger--summary-path" rowspan="1">
+                                <a href="#path--v1-auth-sign-out">/v1/auth/sign-out</a>
+                            </td>
+                        <td>
+                            <a href="#operation--v1-auth-sign-out-post">POST</a>
+                        </td>
+                        <td>
+                            <p>Sign out SME user</p>
+        
+                        </td>
+                    </tr>
+                    <tr>
+                            <td class="swagger--summary-path" rowspan="1">
+                                <a href="#path--v1-auth-verify-account">/v1/auth/verify-account</a>
+                            </td>
+                        <td>
+                            <a href="#operation--v1-auth-verify-account-get">GET</a>
+                        </td>
+                        <td>
+                            <p>Verify SME user email address</p>
+        
+                        </td>
+                    </tr>
+                    <tr>
+                            <td class="swagger--summary-path" rowspan="1">
+                                <a href="#path--v1-common-status">/v1/common/status</a>
+                            </td>
+                        <td>
+                            <a href="#operation--v1-common-status-post">POST</a>
+                        </td>
+                        <td>
+                            <p>Returns status of list of AWS services used by Techpath app</p>
+        
+                        </td>
+                    </tr>
+                    <tr>
+                            <td class="swagger--summary-path" rowspan="1">
+                                <a href="#path--v1-sign-in">/v1/sign-in</a>
+                            </td>
+                        <td>
+                            <a href="#operation--v1-sign-in-post">POST</a>
+                        </td>
+                        <td>
+                            <p>Sign in a new SME user</p>
+        
+                        </td>
+                    </tr>
+                    <tr>
+                            <td class="swagger--summary-path" rowspan="1">
+                                <a href="#path--v1-user-profile-:user_id">/v1/user/profile/:user_id</a>
+                            </td>
+                        <td>
+                            <a href="#operation--v1-user-profile-:user_id-get">GET</a>
+                        </td>
+                        <td>
+                            <p>Get user profile</p>
+        
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+    
+    
+    
+    <h2>Paths</h2>
+    
+        
+        <span id="path--v1-auth-create-user"></span>
+            <div id="operation--v1-auth-create-user-post" class="swagger--panel-operation-post panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">Create a new SME user</div>
+                    <h3 class="panel-title"><span class="operation-name">POST</span> <strong>/v1/auth/create-user</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>Create any type of SME user</p>
+            
+                    </section>
+            
+                        
+                            <section class="sw-request-body">
+                                
+                                    <p><span class="label label-default">application/json</span> 
+                        </p>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p><p>Request body JSON pass to API</p>
+                        </p>
+                                            </div>
+                                            <div class="col-md-6 sw-request-model">
+                            <div  class="panel panel-definition">
+                                <div class="panel-body">
+                                            <section class="json-schema-example">
+                                                <pre><code class="language-json">{<br>    <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;bob@newpath.com,&quot;</span>,<br>    <span class="hljs-attr">&quot;first_name&quot;</span>: <span class="hljs-string">&quot;Bob&quot;</span>,<br>    <span class="hljs-attr">&quot;job_title&quot;</span>: <span class="hljs-string">&quot;developer,&quot;</span>,<br>    <span class="hljs-attr">&quot;password&quot;</span>: <span class="hljs-string">&quot;@Abc123&quot;</span>,<br>    <span class="hljs-attr">&quot;site_id&quot;</span>: <span class="hljs-string">&quot;01G562W6T8HCE2ZDCANTPTFV1Q&quot;</span>,<br>    <span class="hljs-attr">&quot;surname&quot;</span>: <span class="hljs-string">&quot;Alic,&quot;</span><br>}</code></pre>
+                                        
+                                            </section>
+                                        
+                                                <section class="json-schema-properties">
+                                                    <dl>
+                                                            <dt data-property-name="first_name">
+                                                                <span class="json-property-name">first_name:</span>
+                                                                
+                                                                <span class="json-property-type">string</span>
+                                                                <span class="json-property-range" title="Value limits"></span>
+                                                                
+                                                                    <span class="json-property-required"></span>
+                                                            </dt>
+                                                            <dd>
+                                                                <p>User first name</p>
+                                                
+                                                                <div class="json-inner-schema">
+                                                                    
+                                                                </div>
+                                                            </dd>
+                                                            <dt data-property-name="surname">
+                                                                <span class="json-property-name">surname:</span>
+                                                                
+                                                                <span class="json-property-type">string</span>
+                                                                <span class="json-property-range" title="Value limits"></span>
+                                                                
+                                                                    <span class="json-property-required"></span>
+                                                            </dt>
+                                                            <dd>
+                                                                <p>User surname</p>
+                                                
+                                                                <div class="json-inner-schema">
+                                                                    
+                                                                </div>
+                                                            </dd>
+                                                            <dt data-property-name="job_title">
+                                                                <span class="json-property-name">job_title:</span>
+                                                                
+                                                                <span class="json-property-type">string</span>
+                                                                <span class="json-property-range" title="Value limits"></span>
+                                                                
+                                                                    <span class="json-property-required"></span>
+                                                            </dt>
+                                                            <dd>
+                                                                <p>User job title</p>
+                                                
+                                                                <div class="json-inner-schema">
+                                                                    
+                                                                </div>
+                                                            </dd>
+                                                            <dt data-property-name="email">
+                                                                <span class="json-property-name">email:</span>
+                                                                
+                                                                <span class="json-property-type">string</span>
+                                                                <span class="json-property-range" title="Value limits"></span>
+                                                                
+                                                                    <span class="json-property-required"></span>
+                                                            </dt>
+                                                            <dd>
+                                                                <p>User email. Only organisation emails are allowed when SME admin register first time</p>
+                                                
+                                                                <div class="json-inner-schema">
+                                                                    
+                                                                </div>
+                                                            </dd>
+                                                            <dt data-property-name="password">
+                                                                <span class="json-property-name">password:</span>
+                                                                
+                                                                <span class="json-property-type">string</span>
+                                                                <span class="json-property-range" title="Value limits"></span>
+                                                                
+                                                                    <span class="json-property-required"></span>
+                                                            </dt>
+                                                            <dd>
+                                                                <p>User password</p>
+                                                
+                                                                <div class="json-inner-schema">
+                                                                    
+                                                                </div>
+                                                            </dd>
+                                                            <dt data-property-name="site_id">
+                                                                <span class="json-property-name">site_id:</span>
+                                                                
+                                                                <span class="json-property-type">string</span>
+                                                                <span class="json-property-range" title="Value limits"></span>
+                                                                
+                                                                    <span class="json-property-required"></span>
+                                                            </dt>
+                                                            <dd>
+                                                                <p>Site ID belong this user</p>
+                                                
+                                                                <div class="json-inner-schema">
+                                                                    
+                                                                </div>
+                                                            </dd>
+                                                    </dl>
+                                                </section>
+                                </div>
+                            </div></div>
+                                        </div>
+                            </section>        
+                    
+                        <section class="sw-responses">
+                    
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Returns a created user information.</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col-md-6 sw-response-examples">
+                                                        <div class="label label-default">Example for application/json</div>
+                                                        <pre>{<br>    <span class="hljs-attr">"data"</span>: {<br>        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"bob@newpath.com"</span>,<br>        <span class="hljs-attr">"first_name"</span>: <span class="hljs-string">"Bob"</span>,<br>        <span class="hljs-attr">"job_title"</span>: <span class="hljs-string">"developer"</span>,<br>        <span class="hljs-attr">"site_id"</span>: <span class="hljs-string">"01G562W6T8HCE2ZDCANTPTFV1Q"</span>,<br>        <span class="hljs-attr">"surname"</span>: <span class="hljs-string">"Alice"</span><br>    },<br>    <span class="hljs-attr">"messageCode"</span>: <span class="hljs-string">"UserCreatedSuccessfully"</span><br>}</pre>
+                                                    </div>
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                            
+                                                                    <section class="json-schema-properties">
+                                                                        <dl>
+                                                                                <dt data-property-name="messageCode">
+                                                                                    <span class="json-property-name">messageCode:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>API response status message code</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="first_name">
+                                                                                    <span class="json-property-name">first_name:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>The created user first name</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="surname">
+                                                                                    <span class="json-property-name">surname:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>The created user surname</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="job_title">
+                                                                                    <span class="json-property-name">job_title:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>The created user job title</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="email">
+                                                                                    <span class="json-property-name">email:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>The created user email</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="site_id">
+                                                                                    <span class="json-property-name">site_id:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>The created user site ID</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                        </dl>
+                                                                    </section>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-400">
+                                        400 Bad Request
+                                    
+                                    </dt>
+                                    <dd class="sw-response-400">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Error field validations</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col-md-6 sw-response-examples">
+                                                        <div class="label label-default">Example for application/json</div>
+                                                        <pre>{<br>    <span class="hljs-attr">"message"</span>: <span class="hljs-string">"UserAlreadyExists"</span>,<br>    <span class="hljs-attr">"statusCode"</span>: <span class="hljs-number">400</span><br>}</pre>
+                                                    </div>
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                            
+                                                                    <section class="json-schema-properties">
+                                                                        <dl>
+                                                                                <dt data-property-name="message">
+                                                                                    <span class="json-property-name">message:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>API response status message code. Possible codes [&#39;UserAlreadyExists&#39;, &#39;OnlyOrgEmailsAreAllowed&#39;]</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="statusCode">
+                                                                                    <span class="json-property-name">statusCode:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>Http error code</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                        </dl>
+                                                                    </section>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                </div>
+            </div>
+        
+        <span id="path--v1-auth-forgot-password"></span>
+            <div id="operation--v1-auth-forgot-password-post" class="swagger--panel-operation-post panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">Send forgot password request</div>
+                    <h3 class="panel-title"><span class="operation-name">POST</span> <strong>/v1/auth/forgot-password</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>Forgot password request send to server using username (email address)</p>
+            
+                    </section>
+            
+                        
+                            <section class="sw-request-body">
+                                
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p><p>Request body</p>
+                        </p>
+                                            </div>
+                                            <div class="col-md-6 sw-request-model">
+                            <div  class="panel panel-definition">
+                                <div class="panel-body">
+                                            <section class="json-schema-example">
+                                                <pre><code class="language-json">{<br>    <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;bob@newpath.com&quot;</span>,<br>    <span class="hljs-attr">&quot;site_id&quot;</span>: <span class="hljs-string">&quot;01G562W6T8HCE2ZDCANTPTFV1Q&quot;</span><br>}</code></pre>
+                                        
+                                            </section>
+                                        
+                                </div>
+                            </div></div>
+                                        </div>
+                            </section>        
+                    
+                        <section class="sw-responses">
+                    
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Password reset email sent.</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col-md-6 sw-response-examples">
+                                                        <div class="label label-default">Example for application/json</div>
+                                                        <pre>{<br>    <span class="hljs-attr">"data"</span>: {<br>        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"bob@newpath.com"</span>,<br>        <span class="hljs-attr">"site_id"</span>: <span class="hljs-string">"01G562W6T8HCE2ZDCANTPTFV1Q"</span><br>    },<br>    <span class="hljs-attr">"message"</span>: <span class="hljs-string">"PasswordResetEmailSent"</span><br>}</pre>
+                                                    </div>
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                            
+                                                                    <section class="json-schema-properties">
+                                                                        <dl>
+                                                                                <dt data-property-name="message">
+                                                                                    <span class="json-property-name">message:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>API response status message</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="email">
+                                                                                    <span class="json-property-name">email:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>Requested email</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="site_id">
+                                                                                    <span class="json-property-name">site_id:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>Requested site ID</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                        </dl>
+                                                                    </section>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-400">
+                                        400 Bad Request
+                                    
+                                    </dt>
+                                    <dd class="sw-response-400">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Password reset request failure.</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col-md-6 sw-response-examples">
+                                                        <div class="label label-default">Example for application/json</div>
+                                                        <pre>{<br>    <span class="hljs-attr">"message"</span>: <span class="hljs-string">"InvalidEmailAddress"</span>,<br>    <span class="hljs-attr">"statusCode"</span>: <span class="hljs-number">400</span><br>}</pre>
+                                                    </div>
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                            
+                                                                    <section class="json-schema-properties">
+                                                                        <dl>
+                                                                                <dt data-property-name="message">
+                                                                                    <span class="json-property-name">message:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>API response status message code. Possible codes [&#39;InvalidEmailAddress&#39;, &#39;EmailNotVerified&#39;]</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="statusCode">
+                                                                                    <span class="json-property-name">statusCode:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>Http error code</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                        </dl>
+                                                                    </section>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                </div>
+            </div>
+        
+        <span id="path--v1-auth-resend-verification"></span>
+            <div id="operation--v1-auth-resend-verification-post" class="swagger--panel-operation-post panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">Resend email verification code</div>
+                    <h3 class="panel-title"><span class="operation-name">POST</span> <strong>/v1/auth/resend-verification</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>When SME lost account verification email will send it again</p>
+            
+                    </section>
+            
+                        
+                            <section class="sw-request-body">
+                                
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p><p>Request body</p>
+                        </p>
+                                            </div>
+                                            <div class="col-md-6 sw-request-model">
+                            <div  class="panel panel-definition">
+                                <div class="panel-body">
+                                            <section class="json-schema-example">
+                                                <pre><code class="language-json">{<br>    <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;bob@newpath.com&quot;</span>,<br>    <span class="hljs-attr">&quot;site_id&quot;</span>: <span class="hljs-string">&quot;01G562W6T8HCE2ZDCANTPTFV1Q&quot;</span><br>}</code></pre>
+                                        
+                                            </section>
+                                        
+                                </div>
+                            </div></div>
+                                        </div>
+                            </section>        
+                    
+                        <section class="sw-responses">
+                    
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Verification code resend succuessfully.</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col-md-6 sw-response-examples">
+                                                        <div class="label label-default">Example for application/json</div>
+                                                        <pre>{<br>    <span class="hljs-attr">"data"</span>: {<br>        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"bob@newpath.com"</span>,<br>        <span class="hljs-attr">"site_id"</span>: <span class="hljs-string">"01G562W6T8HCE2ZDCANTPTFV1Q"</span><br>    },<br>    <span class="hljs-attr">"message"</span>: <span class="hljs-string">"EmailVerificationSent"</span><br>}</pre>
+                                                    </div>
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                            
+                                                                    <section class="json-schema-properties">
+                                                                        <dl>
+                                                                                <dt data-property-name="message">
+                                                                                    <span class="json-property-name">message:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>API response status message</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="email">
+                                                                                    <span class="json-property-name">email:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>Requested email</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="site_id">
+                                                                                    <span class="json-property-name">site_id:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>Requested site ID</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                        </dl>
+                                                                    </section>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-400">
+                                        400 Bad Request
+                                    
+                                    </dt>
+                                    <dd class="sw-response-400">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Verification resending failure.</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col-md-6 sw-response-examples">
+                                                        <div class="label label-default">Example for application/json</div>
+                                                        <pre>{<br>    <span class="hljs-attr">"message"</span>: <span class="hljs-string">"EmailAlreadyVerified"</span>,<br>    <span class="hljs-attr">"statusCode"</span>: <span class="hljs-number">400</span><br>}</pre>
+                                                    </div>
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                            
+                                                                    <section class="json-schema-properties">
+                                                                        <dl>
+                                                                                <dt data-property-name="message">
+                                                                                    <span class="json-property-name">message:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>API response status message code. Possible codes [&#39;InvalidEmailAddress&#39;, &#39;EmailAlreadyVerified&#39;]</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="statusCode">
+                                                                                    <span class="json-property-name">statusCode:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>Http error code</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                        </dl>
+                                                                    </section>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                </div>
+            </div>
+        
+        <span id="path--v1-auth-reset-password"></span>
+            <div id="operation--v1-auth-reset-password-post" class="swagger--panel-operation-post panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">Reset SME user password</div>
+                    <h3 class="panel-title"><span class="operation-name">POST</span> <strong>/v1/auth/reset-password</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>Reset SME user account via forgot password</p>
+            
+                    </section>
+            
+                        
+                            <section class="sw-request-body">
+                                
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p><p>Request body</p>
+                        </p>
+                                            </div>
+                                            <div class="col-md-6 sw-request-model">
+                            <div  class="panel panel-definition">
+                                <div class="panel-body">
+                                            <section class="json-schema-example">
+                                                <pre><code class="language-json">{<br>    <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;bob@newpath.com&quot;</span>,<br>    <span class="hljs-attr">&quot;password&quot;</span>: <span class="hljs-string">&quot;@Abc123&quot;</span>,<br>    <span class="hljs-attr">&quot;site_id&quot;</span>: <span class="hljs-string">&quot;01G562W6T8HCE2ZDCANTPTFV1Q&quot;</span>,<br>    <span class="hljs-attr">&quot;token&quot;</span>: <span class="hljs-string">&quot;xyZAbe...&quot;</span><br>}</code></pre>
+                                        
+                                            </section>
+                                        
+                                </div>
+                            </div></div>
+                                        </div>
+                            </section>        
+                    
+                        <section class="sw-responses">
+                    
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Password reset successfully.</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col-md-6 sw-response-examples">
+                                                        <div class="label label-default">Example for application/json</div>
+                                                        <pre>{<br>    <span class="hljs-attr">"data"</span>: {<br>        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"bob@newpath.com"</span>,<br>        <span class="hljs-attr">"site_id"</span>: <span class="hljs-string">"01G562W6T8HCE2ZDCANTPTFV1Q"</span><br>    },<br>    <span class="hljs-attr">"message"</span>: <span class="hljs-string">"PasswordResetSuccessfully"</span><br>}</pre>
+                                                    </div>
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                            
+                                                                    <section class="json-schema-properties">
+                                                                        <dl>
+                                                                                <dt data-property-name="message">
+                                                                                    <span class="json-property-name">message:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>API response status message</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="email">
+                                                                                    <span class="json-property-name">email:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>Requested email</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="site_id">
+                                                                                    <span class="json-property-name">site_id:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>Requested site ID</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                        </dl>
+                                                                    </section>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-400">
+                                        400 Bad Request
+                                    
+                                    </dt>
+                                    <dd class="sw-response-400">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Password reset failure.</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col-md-6 sw-response-examples">
+                                                        <div class="label label-default">Example for application/json</div>
+                                                        <pre>{<br>    <span class="hljs-attr">"message"</span>: <span class="hljs-string">"InvalidToken"</span>,<br>    <span class="hljs-attr">"statusCode"</span>: <span class="hljs-number">400</span><br>}</pre>
+                                                    </div>
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                            
+                                                                    <section class="json-schema-properties">
+                                                                        <dl>
+                                                                                <dt data-property-name="message">
+                                                                                    <span class="json-property-name">message:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>API response status message code. Possible codes [&#39;InvalidToken&#39;]</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="statusCode">
+                                                                                    <span class="json-property-name">statusCode:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>Http error code</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                        </dl>
+                                                                    </section>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                </div>
+            </div>
+        
+        <span id="path--v1-auth-sign-in"></span>
+            <div id="operation--v1-auth-sign-in-post" class="swagger--panel-operation-post panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">Sign in a new SME user</div>
+                    <h3 class="panel-title"><span class="operation-name">POST</span> <strong>/v1/auth/sign-in</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>Sign in to the SME</p>
+            
+                    </section>
+            
+                        
+                            <section class="sw-request-body">
+                                
+                                    <p><span class="label label-default">application/json</span> 
+                        </p>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p><p>Request body JSON pass to API</p>
+                        </p>
+                                            </div>
+                                            <div class="col-md-6 sw-request-model">
+                            <div  class="panel panel-definition">
+                                <div class="panel-body">
+                                            <section class="json-schema-example">
+                                                <pre><code class="language-json">{<br>    <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;bob@newpath.com,&quot;</span>,<br>    <span class="hljs-attr">&quot;password&quot;</span>: <span class="hljs-string">&quot;@Abc123&quot;</span><br>}</code></pre>
+                                        
+                                            </section>
+                                        
+                                                <section class="json-schema-properties">
+                                                    <dl>
+                                                            <dt data-property-name="email">
+                                                                <span class="json-property-name">email:</span>
+                                                                
+                                                                <span class="json-property-type">string</span>
+                                                                <span class="json-property-range" title="Value limits"></span>
+                                                                
+                                                                    <span class="json-property-required"></span>
+                                                            </dt>
+                                                            <dd>
+                                                                <p>User email.</p>
+                                                
+                                                                <div class="json-inner-schema">
+                                                                    
+                                                                </div>
+                                                            </dd>
+                                                            <dt data-property-name="password">
+                                                                <span class="json-property-name">password:</span>
+                                                                
+                                                                <span class="json-property-type">string</span>
+                                                                <span class="json-property-range" title="Value limits"></span>
+                                                                
+                                                                    <span class="json-property-required"></span>
+                                                            </dt>
+                                                            <dd>
+                                                                <p>User password</p>
+                                                
+                                                                <div class="json-inner-schema">
+                                                                    
+                                                                </div>
+                                                            </dd>
+                                                    </dl>
+                                                </section>
+                                </div>
+                            </div></div>
+                                        </div>
+                            </section>        
+                    
+                        <section class="sw-responses">
+                    
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Returns a signed user.</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col-md-6 sw-response-examples">
+                                                        <div class="label label-default">Example for application/json</div>
+                                                        <pre>{<br>    <span class="hljs-attr">"data"</span>: {<br>        <span class="hljs-attr">"accessToken"</span>: <span class="hljs-string">"qq21214d4rgdg@#$$"</span>,<br>        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"bob@newpath.com"</span>,<br>        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1234555"</span>,<br>        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"bob mali"</span>,<br>        <span class="hljs-attr">"organisationSetupCompleted"</span>: <span class="hljs-string">"232fsdfs434343"</span>,<br>        <span class="hljs-attr">"role"</span>: <span class="hljs-string">"developer"</span><br>    },<br>    <span class="hljs-attr">"message"</span>: <span class="hljs-string">"UserSignedSuccessfully"</span><br>}</pre>
+                                                    </div>
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                            
+                                                                    <section class="json-schema-properties">
+                                                                        <dl>
+                                                                                <dt data-property-name="message">
+                                                                                    <span class="json-property-name">message:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>API response status message code</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="accessToken">
+                                                                                    <span class="json-property-name">accessToken:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>Jwt token of the user</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="id">
+                                                                                    <span class="json-property-name">id:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>Id of the user</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="email">
+                                                                                    <span class="json-property-name">email:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>The created user email</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="name">
+                                                                                    <span class="json-property-name">name:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>First name and the surname of the user</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="organisationSetupCompleted">
+                                                                                    <span class="json-property-name">organisationSetupCompleted:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">boolean</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>User set up status with the organisation</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                        </dl>
+                                                                    </section>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-400">
+                                        400 Bad Request
+                                    
+                                    </dt>
+                                    <dd class="sw-response-400">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Error field validations</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col-md-6 sw-response-examples">
+                                                        <div class="label label-default">Example for application/json</div>
+                                                        <pre>{<br>    <span class="hljs-attr">"message"</span>: <span class="hljs-string">"EmailNotVerified"</span><br>}</pre>
+                                                    </div>
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                            
+                                                                    <section class="json-schema-properties">
+                                                                        <dl>
+                                                                                <dt data-property-name="message">
+                                                                                    <span class="json-property-name">message:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>API response status message code. Possible codes [&#39;EmailNotVerified, UserNotExists&#39;]</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                        </dl>
+                                                                    </section>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                </div>
+            </div>
+        
+        <span id="path--v1-auth-sign-out"></span>
+            <div id="operation--v1-auth-sign-out-post" class="swagger--panel-operation-post panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">Sign out SME user</div>
+                    <h3 class="panel-title"><span class="operation-name">POST</span> <strong>/v1/auth/sign-out</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>Sign out  SME user</p>
+            
+                    </section>
+            
+                        
+                            <section class="sw-request-body">
+                                
+                                    <p><span class="label label-default">application/json</span> 
+                        </p>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p><p>Request body JSON pass to API</p>
+                        </p>
+                                            </div>
+                                            <div class="col-md-6 sw-request-model">
+                            <div  class="panel panel-definition">
+                                <div class="panel-body">
+                                            <section class="json-schema-example">
+                                                <pre><code class="language-json">&quot;accessToken:ddsfssd5565thryhrwegvbfbnfhr&quot;</code></pre>
+                                        
+                                            </section>
+                                        
+                                                <section class="json-schema-properties">
+                                                    <dl>
+                                                            <dt data-property-name="accessToken">
+                                                                <span class="json-property-name">accessToken:</span>
+                                                                
+                                                                <span class="json-property-type">string</span>
+                                                                <span class="json-property-range" title="Value limits"></span>
+                                                                
+                                                                    <span class="json-property-required"></span>
+                                                            </dt>
+                                                            <dd>
+                                                                <p>Logged user access token</p>
+                                                
+                                                                <div class="json-inner-schema">
+                                                                    
+                                                                </div>
+                                                            </dd>
+                                                    </dl>
+                                                </section>
+                                </div>
+                            </div></div>
+                                        </div>
+                            </section>        
+                    
+                        <section class="sw-responses">
+                    
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Returns a signed user.</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col-md-6 sw-response-examples">
+                                                        <div class="label label-default">Example for application/json</div>
+                                                        <pre>{<br>    <span class="hljs-attr">"message"</span>: <span class="hljs-string">"UserSignedOutSuccessfully"</span><br>}</pre>
+                                                    </div>
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                            
+                                                                    <section class="json-schema-properties">
+                                                                        <dl>
+                                                                                <dt data-property-name="message">
+                                                                                    <span class="json-property-name">message:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>API response status message code</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                        </dl>
+                                                                    </section>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-400">
+                                        400 Bad Request
+                                    
+                                    </dt>
+                                    <dd class="sw-response-400">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Error field validations</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col-md-6 sw-response-examples">
+                                                        <div class="label label-default">Example for application/json</div>
+                                                        <pre>{<br>    <span class="hljs-attr">"message"</span>: <span class="hljs-string">"InvalidAccessToken"</span><br>}</pre>
+                                                    </div>
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                            
+                                                                    <section class="json-schema-properties">
+                                                                        <dl>
+                                                                                <dt data-property-name="message">
+                                                                                    <span class="json-property-name">message:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>API response status message code. Possible codes [&#39;InvalidAccessToken, UserNotExists&#39;]</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                        </dl>
+                                                                    </section>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                </div>
+            </div>
+        
+        <span id="path--v1-auth-verify-account"></span>
+            <div id="operation--v1-auth-verify-account-get" class="swagger--panel-operation-get panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">Verify SME user email address</div>
+                    <h3 class="panel-title"><span class="operation-name">GET</span> <strong>/v1/auth/verify-account</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>When SME register with the system, email address has to be verify</p>
+            
+                    </section>
+            
+                        
+                            <section class="sw-request-body">
+                                
+                                    <p><span class="label label-default">application/json</span> 
+                        </p>
+                            </section>        
+                        <section class="sw-request-params">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="sw-param-name"></th>
+                                    <th class="sw-param-description"></th>
+                                    <th class="sw-param-type"></th>
+                                    <th class="sw-param-data-type"></th>
+                                    <th class="sw-param-annotation"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td>
+                                                token
+                                            </td>
+                                            <td><p>Verification token</p>
+                                        </td>
+                                            <td>query</td>
+                                            <td>
+                                        <span class="json-property-type">object</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                                    <span class="json-property-required"></span>
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    
+                        <section class="sw-responses">
+                    
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Token verified successfully.</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col-md-6 sw-response-examples">
+                                                        <div class="label label-default">Example for application/json</div>
+                                                        <pre>{<br>    <span class="hljs-attr">"data"</span>: {<br>        <span class="hljs-attr">"token"</span>: <span class="hljs-string">"xyz..."</span><br>    },<br>    <span class="hljs-attr">"message"</span>: <span class="hljs-string">"EmailVerifiedSuccessfully"</span><br>}</pre>
+                                                    </div>
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                            
+                                                                    <section class="json-schema-properties">
+                                                                        <dl>
+                                                                                <dt data-property-name="message">
+                                                                                    <span class="json-property-name">message:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>API response status message</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="token">
+                                                                                    <span class="json-property-name">token:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>Verified token</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                        </dl>
+                                                                    </section>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-400">
+                                        400 Bad Request
+                                    
+                                    </dt>
+                                    <dd class="sw-response-400">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Token expired.</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col-md-6 sw-response-examples">
+                                                        <div class="label label-default">Example for application/json</div>
+                                                        <pre>{<br>    <span class="hljs-attr">"message"</span>: <span class="hljs-string">"TokenExpired"</span>,<br>    <span class="hljs-attr">"statusCode"</span>: <span class="hljs-number">400</span><br>}</pre>
+                                                    </div>
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                            
+                                                                    <section class="json-schema-properties">
+                                                                        <dl>
+                                                                                <dt data-property-name="message">
+                                                                                    <span class="json-property-name">message:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>API response status message code. Possible codes [&#39;TokenExpired&#39;, &#39;TokenInvalid&#39;, &#39;EmailAlreadyVerified&#39;]</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="statusCode">
+                                                                                    <span class="json-property-name">statusCode:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>Http error code</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                        </dl>
+                                                                    </section>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                </div>
+            </div>
+        
+        <span id="path--v1-common-status"></span>
+            <div id="operation--v1-common-status-post" class="swagger--panel-operation-post panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">Returns status of list of AWS services used by Techpath app</div>
+                    <h3 class="panel-title"><span class="operation-name">POST</span> <strong>/v1/common/status</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>Some response properties can decide health of the application</p>
+            
+                    </section>
+            
+                        
+                            <section class="sw-request-body">
+                                
+                                    <p><span class="label label-default">application/json</span> 
+                        </p>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p><p>Request body JSON pass to API</p>
+                        </p>
+                                            </div>
+                                            <div class="col-md-6 sw-request-model">
+                            <div  class="panel panel-definition">
+                                <div class="panel-body">
+                                            <section class="json-schema-example">
+                                                <pre><code class="language-json">{<br>    <span class="hljs-attr">&quot;time&quot;</span>: <span class="hljs-string">&quot;2022-04-19 07:22:17&quot;</span><br>}</code></pre>
+                                        
+                                            </section>
+                                        
+                                                <section class="json-schema-properties">
+                                                    <dl>
+                                                            <dt data-property-name="time">
+                                                                <span class="json-property-name">time:</span>
+                                                                
+                                                                <span class="json-property-type">date</span>
+                                                                <span class="json-property-range" title="Value limits"></span>
+                                                                
+                                                                    <span class="json-property-required"></span>
+                                                            </dt>
+                                                            <dd>
+                                                                <p>Current browser time in unix format</p>
+                                                
+                                                                <div class="json-inner-schema">
+                                                                    
+                                                                </div>
+                                                            </dd>
+                                                    </dl>
+                                                </section>
+                                </div>
+                            </div></div>
+                                        </div>
+                            </section>        
+                    
+                        <section class="sw-responses">
+                    
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Returns a bunch of information.</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col-md-6 sw-response-examples">
+                                                        <div class="label label-default">Example for application/json</div>
+                                                        <pre>{<br>    <span class="hljs-attr">"data"</span>: {<br>        <span class="hljs-attr">"client_time"</span>: <span class="hljs-string">"2022-04-19 07:22:17"</span>,<br>        <span class="hljs-attr">"server_time"</span>: <span class="hljs-string">"2022-04-25T07:29:21.779Z"</span>,<br>        <span class="hljs-attr">"services_status"</span>: {<br>            <span class="hljs-attr">"dynamodb"</span>: <span class="hljs-string">"failed"</span><br>        }<br>    },<br>    <span class="hljs-attr">"message"</span>: <span class="hljs-string">"success"</span><br>}</pre>
+                                                    </div>
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                            
+                                                                    <section class="json-schema-properties">
+                                                                        <dl>
+                                                                                <dt data-property-name="message">
+                                                                                    <span class="json-property-name">message:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>API response status message</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="client_time">
+                                                                                    <span class="json-property-name">client_time:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>The time passed from browser</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="server_time">
+                                                                                    <span class="json-property-name">server_time:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>The server time</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="dynamodb">
+                                                                                    <span class="json-property-name">dynamodb:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>The status of dynamoDB connection from application</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                        </dl>
+                                                                    </section>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                </div>
+            </div>
+        
+        <span id="path--v1-sign-in"></span>
+            <div id="operation--v1-sign-in-post" class="swagger--panel-operation-post panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">Sign in a new SME user</div>
+                    <h3 class="panel-title"><span class="operation-name">POST</span> <strong>/v1/sign-in</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>Sign in to the SME</p>
+            
+                    </section>
+            
+                        
+                            <section class="sw-request-body">
+                                
+                                    <p><span class="label label-default">application/json</span> 
+                        </p>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <p><p>Request body JSON pass to API</p>
+                        </p>
+                                            </div>
+                                            <div class="col-md-6 sw-request-model">
+                            <div  class="panel panel-definition">
+                                <div class="panel-body">
+                                            <section class="json-schema-example">
+                                                <pre><code class="language-json">{<br>    <span class="hljs-attr">&quot;email&quot;</span>: <span class="hljs-string">&quot;bob@newpath.com,&quot;</span>,<br>    <span class="hljs-attr">&quot;password&quot;</span>: <span class="hljs-string">&quot;@Abc123&quot;</span><br>}</code></pre>
+                                        
+                                            </section>
+                                        
+                                                <section class="json-schema-properties">
+                                                    <dl>
+                                                            <dt data-property-name="email">
+                                                                <span class="json-property-name">email:</span>
+                                                                
+                                                                <span class="json-property-type">string</span>
+                                                                <span class="json-property-range" title="Value limits"></span>
+                                                                
+                                                                    <span class="json-property-required"></span>
+                                                            </dt>
+                                                            <dd>
+                                                                <p>User email.</p>
+                                                
+                                                                <div class="json-inner-schema">
+                                                                    
+                                                                </div>
+                                                            </dd>
+                                                            <dt data-property-name="password">
+                                                                <span class="json-property-name">password:</span>
+                                                                
+                                                                <span class="json-property-type">string</span>
+                                                                <span class="json-property-range" title="Value limits"></span>
+                                                                
+                                                                    <span class="json-property-required"></span>
+                                                            </dt>
+                                                            <dd>
+                                                                <p>User password</p>
+                                                
+                                                                <div class="json-inner-schema">
+                                                                    
+                                                                </div>
+                                                            </dd>
+                                                    </dl>
+                                                </section>
+                                </div>
+                            </div></div>
+                                        </div>
+                            </section>        
+                    
+                        <section class="sw-responses">
+                    
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Returns a signed user.</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col-md-6 sw-response-examples">
+                                                        <div class="label label-default">Example for application/json</div>
+                                                        <pre>{<br>    <span class="hljs-attr">"data"</span>: {<br>        <span class="hljs-attr">"accessToken"</span>: <span class="hljs-string">"qq21214d4rgdg@#$$"</span>,<br>        <span class="hljs-attr">"email"</span>: <span class="hljs-string">"bob@newpath.com"</span>,<br>        <span class="hljs-attr">"id"</span>: <span class="hljs-string">"1234555"</span>,<br>        <span class="hljs-attr">"name"</span>: <span class="hljs-string">"bob mali"</span>,<br>        <span class="hljs-attr">"organisationSetupCompleted"</span>: <span class="hljs-string">"232fsdfs434343"</span>,<br>        <span class="hljs-attr">"role"</span>: <span class="hljs-string">"developer"</span><br>    },<br>    <span class="hljs-attr">"message"</span>: <span class="hljs-string">"UserSignedSuccessfully"</span><br>}</pre>
+                                                    </div>
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                            
+                                                                    <section class="json-schema-properties">
+                                                                        <dl>
+                                                                                <dt data-property-name="message">
+                                                                                    <span class="json-property-name">message:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>API response status message code</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="accessToken">
+                                                                                    <span class="json-property-name">accessToken:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>Jwt token of the user</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="id">
+                                                                                    <span class="json-property-name">id:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>Id of the user</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="email">
+                                                                                    <span class="json-property-name">email:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>The created user email</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="name">
+                                                                                    <span class="json-property-name">name:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>First name and the surname of the user</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="organisationSetupCompleted">
+                                                                                    <span class="json-property-name">organisationSetupCompleted:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">boolean</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>User set up status with the organisation</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                        </dl>
+                                                                    </section>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-400">
+                                        400 Bad Request
+                                    
+                                    </dt>
+                                    <dd class="sw-response-400">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Error field validations</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col-md-6 sw-response-examples">
+                                                        <div class="label label-default">Example for application/json</div>
+                                                        <pre>{<br>    <span class="hljs-attr">"message"</span>: <span class="hljs-string">"EmailNotVerified"</span><br>}</pre>
+                                                    </div>
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                            
+                                                                    <section class="json-schema-properties">
+                                                                        <dl>
+                                                                                <dt data-property-name="message">
+                                                                                    <span class="json-property-name">message:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>API response status message code. Possible codes [&#39;EmailNotVerified, UserNotExists&#39;]</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                        </dl>
+                                                                    </section>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                </div>
+            </div>
+        
+        <span id="path--v1-user-profile-:user_id"></span>
+            <div id="operation--v1-user-profile-:user_id-get" class="swagger--panel-operation-get panel">
+                <div class="panel-heading">
+                    <div class="operation-summary">Get user profile</div>
+                    <h3 class="panel-title"><span class="operation-name">GET</span> <strong>/v1/user/profile/:user_id</strong></h3>
+                </div>
+                <div class="panel-body">
+                    <section class="sw-operation-description">
+                        <p>Get user profile information</p>
+            
+                    </section>
+            
+                    
+                        <section class="sw-request-params">
+                            <table class="table">
+                                <thead>
+                                <tr>
+                                    <th class="sw-param-name"></th>
+                                    <th class="sw-param-description"></th>
+                                    <th class="sw-param-type"></th>
+                                    <th class="sw-param-data-type"></th>
+                                    <th class="sw-param-annotation"></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                        <tr>
+                                            <td>
+                                                userId
+                                            </td>
+                                            <td></td>
+                                            <td>path</td>
+                                            <td>
+                                        <span class="json-property-type">object</span>
+                                        <span class="json-property-range" title="Value limits"></span>
+                                        
+                                            </td>
+                                            <td>
+                                                    <span class="json-property-required"></span>
+                                            </td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </section>
+                    
+                        <section class="sw-responses">
+                    
+                            <dl>
+                                    <dt class="sw-response-200">
+                                        200 OK
+                                    
+                                    </dt>
+                                    <dd class="sw-response-200">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Returns user profile.</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col-md-6 sw-response-examples">
+                                                        <div class="label label-default">Example for application/json</div>
+                                                        <pre>{<br>    <span class="hljs-attr">"data"</span>: {<br>        <span class="hljs-attr">"requestId"</span>: <span class="hljs-string">"01G741FCNTEENK8ZB3YKB6HJYG"</span>,<br>        <span class="hljs-attr">"user"</span>: {<br>            <span class="hljs-attr">"address"</span>: {<br>                <span class="hljs-attr">"sme"</span>: {<br>                    <span class="hljs-attr">"SMEDeliveryAddressLine1"</span>: <span class="hljs-string">""</span>,<br>                    <span class="hljs-attr">"SMEDeliveryName"</span>: <span class="hljs-string">"dddd"</span><br>                },<br>                <span class="hljs-attr">"user"</span>: {<br>                    <span class="hljs-attr">"deliveryAddressLine1"</span>: <span class="hljs-string">"sss"</span>,<br>                    <span class="hljs-attr">"deliveryAddressLine2"</span>: <span class="hljs-string">""</span><br>                }<br>            },<br>            <span class="hljs-attr">"approvedProducts"</span>: <span class="hljs-number">2</span>,<br>            <span class="hljs-attr">"approver"</span>: <span class="hljs-literal">null</span>,<br>            <span class="hljs-attr">"approvingCount"</span>: <span class="hljs-number">2</span>,<br>            <span class="hljs-attr">"budgetUsed"</span>: <span class="hljs-number">3000</span>,<br>            <span class="hljs-attr">"email"</span>: <span class="hljs-string">"p.senadheera@newpath.com"</span>,<br>            <span class="hljs-attr">"firstName"</span>: <span class="hljs-string">"John"</span>,<br>            <span class="hljs-attr">"jobTitle"</span>: <span class="hljs-string">"Developer"</span>,<br>            <span class="hljs-attr">"lastName"</span>: <span class="hljs-string">"Doe"</span>,<br>            <span class="hljs-attr">"role"</span>: <span class="hljs-string">"admin"</span>,<br>            <span class="hljs-attr">"tags"</span>: [<br>                <span class="hljs-string">"Everyone"</span><br>            ],<br>            <span class="hljs-attr">"userId"</span>: <span class="hljs-string">"01G741FCNTEENK8ZB3YKB6HJYG"</span><br>        }<br>    },<br>    <span class="hljs-attr">"message"</span>: <span class="hljs-string">"UserFetchedSuccessfully"</span><br>}</pre>
+                                                    </div>
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                            
+                                                                    <section class="json-schema-properties">
+                                                                        <dl>
+                                                                                <dt data-property-name="message">
+                                                                                    <span class="json-property-name">message:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>API response status message code</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="userId">
+                                                                                    <span class="json-property-name">userId:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>Id of the user</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="firstName">
+                                                                                    <span class="json-property-name">firstName:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>First name of the user</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="lastName">
+                                                                                    <span class="json-property-name">lastName:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>Last name of the user</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="email">
+                                                                                    <span class="json-property-name">email:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>The created user email</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="jobTitle">
+                                                                                    <span class="json-property-name">jobTitle:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>Job title of the user</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="tags">
+                                                                                    <span class="json-property-name">tags:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">object</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>Tags of user</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="role">
+                                                                                    <span class="json-property-name">role:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>Role of the user</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="approvingCount">
+                                                                                    <span class="json-property-name">approvingCount:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">integer</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>Approvign count of user</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="approver">
+                                                                                    <span class="json-property-name">approver:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>Approver of user</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="approvedProducts">
+                                                                                    <span class="json-property-name">approvedProducts:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>Approved products of user</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="budgetUsed">
+                                                                                    <span class="json-property-name">budgetUsed:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">integer</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>Used budget of user</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="address">
+                                                                                    <span class="json-property-name">address:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">object</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>User and SME address</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                                <dt data-property-name="requestId">
+                                                                                    <span class="json-property-name">requestId:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>Request user id</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                        </dl>
+                                                                    </section>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                                    <dt class="sw-response-400">
+                                        400 Bad Request
+                                    
+                                    </dt>
+                                    <dd class="sw-response-400">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <p>Error field validations</p>
+                                            
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                    <div class="col-md-6 sw-response-examples">
+                                                        <div class="label label-default">Example for application/json</div>
+                                                        <pre>{<br>    <span class="hljs-attr">"message"</span>: <span class="hljs-string">"UserNotFound"</span><br>}</pre>
+                                                    </div>
+                                                
+                                                <div class="col-md-6 sw-response-model">
+                                                <div  class="panel panel-definition">
+                                                    <div class="panel-body">
+                                                            
+                                                                    <section class="json-schema-properties">
+                                                                        <dl>
+                                                                                <dt data-property-name="message">
+                                                                                    <span class="json-property-name">message:</span>
+                                                                                    
+                                                                                    <span class="json-property-type">string</span>
+                                                                                    <span class="json-property-range" title="Value limits"></span>
+                                                                                    
+                                                                                </dt>
+                                                                                <dd>
+                                                                                    <p>API response status message code. Possible codes [&#39;UserNotFound&#39;]</p>
+                                                                    
+                                                                                    <div class="json-inner-schema">
+                                                                                        
+                                                                                    </div>
+                                                                                </dd>
+                                                                        </dl>
+                                                                    </section>
+                                                    </div>
+                                                </div></div>
+                                            
+                                            </div>                </dd>
+                            </dl>
+                        </section>
+                </div>
+            </div>
+    
+     
+    
+                       
+    
+</div>
+
+</body>
+</html>

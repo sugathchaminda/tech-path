@@ -1,0 +1,329 @@
+service: techpath-backend-api
+
+frameworkVersion: '3'
+
+plugins:
+  - serverless-offline-ssm
+  - serverless-offline
+  - serverless-prune-plugin
+  - serverless-plugin-tracing
+  - serverless-layers
+
+provider:
+  name: aws
+  runtime: nodejs16.x
+  stage: local
+  region: eu-west-2
+  timeout: 30
+  memorySize: 512
+  httpApi:
+    authorizers:
+      customAuthorizer:
+        type: request
+        functionName: tpAuthorizer
+        resultTtlInSeconds: 600
+        identitySource:
+          - $request.header.Authorization
+  iamRoleStatements:
+    - Effect: Allow
+      Action:
+        - ssm:*
+        - s3:*
+        - dynamodb:Query
+        - dynamodb:GetItem
+        - dynamodb:Scan
+        - dynamodb:BatchWriteItem
+        - dynamodb:PutItem
+        - dynamodb:UpdateItem
+        - dynamodb:DeleteItem
+        - ses:*
+        - cognito-idp:AdminInitiateAuth
+        - cognito-idp:AdminCreateUser
+        - cognito-idp:AdminSetUserPassword
+        - cognito-idp:AdminDeleteUser
+      Resource: '*'
+
+  environment:
+    ALLOWED_ORIGINS: ${ssm:/${opt:stage, self:provider.stage}/lambda/TECHPATH/ALLOWED_ORIGINS}
+    LAMBDA_STAGE: ${ssm:/${opt:stage, self:provider.stage}/lambda/TECHPATH/LAMBDA_STAGE}
+    LAMBDA_REGION: ${ssm:/${opt:stage, self:provider.stage}/lambda/TECHPATH/LAMBDA_REGION}
+
+    DYNAMO_TABLE_STATUS: ${ssm:/${opt:stage, self:provider.stage}/lambda/TECHPATH/DYNAMO_TABLE_STATUS}
+    JSON_WEB_TOKEN_SECRET: ${ssm:/${opt:stage, self:provider.stage}/lambda/TECHPATH/JSON_WEB_TOKEN_SECRET}
+    FRONT_END_DOMAIN: ${ssm:/${opt:stage, self:provider.stage}/lambda/TECHPATH/FRONT_END_DOMAIN}
+    COGNITO_USER_POOL_ID: ${ssm:/${opt:stage, self:provider.stage}/lambda/TECHPATH/COGNITO_USER_POOL_ID}
+    COGNITO_CLIENT_ID: ${ssm:/${opt:stage, self:provider.stage}/lambda/TECHPATH/COGNITO_CLIENT_ID}
+  
+
+  # vpc:
+  #   securityGroupIds:
+  #     - ${ssm:/${opt:stage, self:provider.stage}/lambda/common/VPC_SECURITY_GROUP_ID}
+  #   subnetIds:
+  #     - ${ssm:/${opt:stage, self:provider.stage}/lambda/common/VPC_SUBNET_ID1}
+  #     - ${ssm:/${opt:stage, self:provider.stage}/lambda/common/VPC_SUBNET_ID2}
+    
+  deploymentBucket:
+    name: techpath-api-serverless-deployment-bucket-${opt:stage, self:provider.stage}
+
+custom:
+  serverless-offline:
+    httpPort: 3000
+    host: 0.0.0.0
+    noAuth: true
+  serverless-offline-ssm:
+    stages:
+      - local
+    ssm:
+      '/local/lambda/TECHPATH/ALLOWED_ORIGINS': '*'
+      '/local/lambda/TECHPATH/LAMBDA_STAGE': 'dev'
+      '/local/lambda/TECHPATH/LAMBDA_REGION': 'eu-west-2'
+      '/local/lambda/common/VPC_SECURITY_GROUP_ID': '<VPC>'
+      '/local/lambda/common/VPC_SUBNET_ID1': '<SUB1>'
+      '/local/lambda/common/VPC_SUBNET_ID2': '<SUB2>'
+      '/local/lambda/TECHPATH/DYNAMO_TABLE_STATUS': 'techpath-status-local'
+      '/local/lambda/TECHPATH/COGNITO_USER_POOL_ID': 'eu-west-2_G1TO4jIQd'
+      '/local/lambda/TECHPATH/COGNITO_CLIENT_ID': '5oscr56hbshbgq532q3nogc9g1'
+  prune:
+    automatic: true
+    number: 10
+
+functions:
+  common:
+    handler: src/handler.run
+    description: Routing event to common APIs
+    tracing: true # enable tracing for this function
+    architecture: arm64
+    events:
+      - httpApi:
+          path: /v1/common/{proxy+}
+          method: any
+  auth:
+    handler: src/handler.run
+    description: Routing event to auth APIs
+    tracing: true # enable tracing for this function
+    architecture: arm64
+    events:
+      - httpApi:
+          path: /v1/auth/{proxy+}
+          method: any
+      - httpApi:
+          path: /v1/auth/sign-out
+          method: any
+          authorizer:
+            name: customAuthorizer
+  sme:
+    handler: src/handler.run
+    description: Routing event for SME
+    tracing: true # enable tracing for this function
+    architecture: arm64
+    events:
+      - httpApi:
+          path: /v1/sme
+          method: any
+          authorizer:
+            name: customAuthorizer
+  tpAuthorizer:
+    handler: src/handler.tpAuthorizer
+  user:
+    handler: src/handler.run
+    description: Routing event for User managment
+    tracing: true # enable tracing for this function
+    architecture: arm64
+    events:
+      - httpApi:
+          path: /v1/user/{proxy+}
+          method: any
+          authorizer:
+            name: customAuthorizer  
+resources:
+  Resources:
+    StatusTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: techpath-status-${opt:stage, self:provider.stage}
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: N
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 2
+          WriteCapacityUnits: 1
+        PointInTimeRecoverySpecification:
+          PointInTimeRecoveryEnabled: true
+    SmeTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: techpath-sme-${opt:stage, self:provider.stage}
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+          - AttributeName: site_id
+            AttributeType: S
+          - AttributeName: email_domain
+            AttributeType: S
+          - AttributeName: setup_done
+            AttributeType: N
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+          - AttributeName: site_id
+            KeyType: RANGE
+        LocalSecondaryIndexes:
+          - IndexName: LSI1-setup-done-index
+            KeySchema:
+              - AttributeName: id
+                KeyType: HASH
+              - AttributeName: setup_done
+                KeyType: RANGE
+            Projection:
+              ProjectionType: ALL
+        GlobalSecondaryIndexes:
+          - IndexName: GSI1-site-id-index
+            KeySchema:
+              - AttributeName: site_id
+                KeyType: HASH
+              - AttributeName: email_domain
+                KeyType: RANGE
+            Projection:
+              ProjectionType: ALL
+        BillingMode: PAY_PER_REQUEST
+        PointInTimeRecoverySpecification:
+          PointInTimeRecoveryEnabled: true
+    UserTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: techpath-user-${opt:stage, self:provider.stage}
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+          - AttributeName: sme_id
+            AttributeType: S
+          - AttributeName: email
+            AttributeType: S
+          - AttributeName: verification_code
+            AttributeType: S
+          - AttributeName: site_id
+            AttributeType: S
+          - AttributeName: approver
+            AttributeType: S
+          - AttributeName: role
+            AttributeType: S  
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+          - AttributeName: sme_id
+            KeyType: RANGE
+        GlobalSecondaryIndexes:
+          - IndexName: GSI1-sme-id-email-index
+            KeySchema:
+              - AttributeName: sme_id
+                KeyType: HASH
+              - AttributeName: email
+                KeyType: RANGE
+            Projection:
+              ProjectionType: ALL
+          - IndexName: GSI2-verification-code-index
+            KeySchema:
+              - AttributeName: verification_code
+                KeyType: HASH
+            Projection:
+              ProjectionType: ALL
+          - IndexName: GSI3-site-id-email-index
+            KeySchema:
+              - AttributeName: site_id
+                KeyType: HASH
+              - AttributeName: email
+                KeyType: RANGE
+            Projection:
+              ProjectionType: ALL
+          - IndexName: GSI4-sme-id-approver-index
+            KeySchema:
+              - AttributeName: sme_id
+                KeyType: HASH
+              - AttributeName: approver
+                KeyType: RANGE
+            Projection:
+              ProjectionType: ALL
+          - IndexName: GSI5-sme-id-role-index
+            KeySchema:
+              - AttributeName: sme_id
+                KeyType: HASH
+              - AttributeName: role
+                KeyType: RANGE
+            Projection:
+              ProjectionType: ALL
+          - IndexName: GSI6-site-id-sme-id-index
+            KeySchema:
+              - AttributeName: site_id
+                KeyType: HASH
+              - AttributeName: sme_id
+                KeyType: RANGE
+            Projection:
+              ProjectionType: ALL    
+        BillingMode: PAY_PER_REQUEST
+        PointInTimeRecoverySpecification:
+          PointInTimeRecoveryEnabled: true
+    TagTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: techpath-tag-${opt:stage, self:provider.stage}
+        AttributeDefinitions:
+          - AttributeName: id
+            AttributeType: S
+          - AttributeName: sme_id
+            AttributeType: S
+          - AttributeName: name
+            AttributeType: S
+          - AttributeName: is_default
+            AttributeType: N
+        KeySchema:
+          - AttributeName: id
+            KeyType: HASH
+          - AttributeName: sme_id
+            KeyType: RANGE
+        GlobalSecondaryIndexes:
+          - IndexName: GSI1-name-index
+            KeySchema:
+              - AttributeName: sme_id
+                KeyType: HASH
+              - AttributeName: name
+                KeyType: RANGE
+            Projection:
+              ProjectionType: ALL
+          - IndexName: GSI2-sme-id-is-default-index
+            KeySchema:
+              - AttributeName: sme_id
+                KeyType: HASH
+              - AttributeName: is_default
+                KeyType: RANGE
+            Projection:
+              ProjectionType: ALL
+        BillingMode: PAY_PER_REQUEST
+        PointInTimeRecoverySpecification:
+          PointInTimeRecoveryEnabled: true
+    UserTagTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: techpath-user-tag-${opt:stage, self:provider.stage}
+        AttributeDefinitions:
+          - AttributeName: user_id
+            AttributeType: S
+          - AttributeName: tag_id
+            AttributeType: S
+        KeySchema:
+          - AttributeName: user_id
+            KeyType: HASH
+          - AttributeName: tag_id
+            KeyType: RANGE
+        GlobalSecondaryIndexes:
+          - IndexName: GSI1-user-id-index
+            KeySchema:
+              - AttributeName: user_id
+                KeyType: HASH
+            Projection:
+              ProjectionType: ALL
+        BillingMode: PAY_PER_REQUEST
+        PointInTimeRecoverySpecification:
+          PointInTimeRecoveryEnabled: true

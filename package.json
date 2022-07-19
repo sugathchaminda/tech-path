@@ -1,0 +1,63 @@
+{
+  "name": "techpath-backend",
+  "description": "backend apis for TechPath",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:movi-repo/techpath-backend.git",
+  "author": "TechPath",
+  "license": "ISC",
+  "scripts": {
+    "lint": "eslint src",
+    "lint:fix": "eslint src --fix",
+    "offline": "serverless offline start -r eu-west-2 --noTimeout --stage dev",
+    "build-docs": "swagger-jsdoc -d ./docs/swaggerDef.js ./src/routes.js -o ./docs/swagger.json && bootprint openapi ./docs/swagger.json docs"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "yarn run lint"
+  },
+  "bugs": {
+    "url": "https://github.com/movi-repo/techpath-backend.git/issues"
+  },
+  "homepage": "https://github.com/movi-repo/techpath-backend.git#readme",
+  "imports": {
+    "#root/*": "./*.js",
+    "#src/*": "./src/*.js",
+    "#middlewares/*": "./src/middlewares/*.js",
+    "#functions/*": "./src/functions/*.js",
+    "#utils/*": "./src/utils/*.js"
+  },
+  "devDependencies": {
+    "bootprint": "^4.0.4",
+    "bootprint-openapi": "^4.0.4",
+    "eslint": "^8.13.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "husky": "^4.3.8",
+    "lint-staged": "^12.3.7",
+    "serverless": "^3.19.0",
+    "serverless-layers": "^2.5.4",
+    "serverless-offline": "^8.8.0",
+    "serverless-offline-ssm": "^6.2.0",
+    "serverless-plugin-tracing": "^2.0.0",
+    "serverless-prune-plugin": "^2.0.1",
+    "swagger-jsdoc": "^6.2.1"
+  },
+  "dependencies": {
+    "@aws-sdk/client-ses": "^3.107.0",
+    "@hapi/boom": "^9.1.4",
+    "aws-sdk": "^2.1116.0",
+    "dotenv": "^16.0.0",
+    "joi": "^17.6.0",
+    "joi-password-complexity": "^5.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "lambda-api": "^0.11.2",
+    "ulid": "^2.3.0"
+  }
+}

@@ -1,0 +1,20 @@
+version: 0.2
+run-as: root
+
+phases:
+  install:
+    runtime-versions:
+      nodejs: 14
+    commands:
+      - n 16
+      - echo "Build started ... "
+      - echo "Node version $(node --version)"
+      - yarn global add serverless
+      - yarn install
+  build:
+    commands:
+      - serverless deploy --stage ${LAMBDA_STAGE} 
+
+cache:
+  paths:
+    - node_modules
